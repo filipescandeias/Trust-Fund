@@ -1,0 +1,409 @@
+/* General Reset */
+body,
+html {
+  margin: 0; /* Elimina los márgenes predeterminados */
+  padding: 0; /* Elimina el relleno predeterminado */
+  box-sizing: border-box; /* Incluye el borde y el relleno en el tamaño total de los elementos */
+  background-color: #f0eeee;
+  scroll-behavior: smooth;
+  
+}
+
+/* Navbar */
+.top-bar {
+  display: flex; /* Utiliza el modelo de diseño flexbox */
+  justify-content: space-between; /* Distribuye los elementos con espacio entre ellos */
+  align-items: center; /* Alinea los elementos verticalmente al centro */
+  background-color: #d0d0d1; /* Color de fondo */
+  padding: 15px 20px; /* Espaciado interior */
+  position: fixed; /* Fija la barra de navegación en la parte superior */
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  top: 0; /* Se sitúa en la parte superior */
+  z-index: 1000; /* Coloca la barra por encima de otros elementos */
+  transition: all 0.3s ease-in-out; /* Añade una transición suave a todos los cambios */
+}
+
+.top-bar.shrink {
+  padding: 8px 20px; /* Cambia el padding cuando la clase .shrink está activa */
+  background-color: #eaeaea; /* Cambia el color de fondo cuando se hace scroll */
+}
+
+.logo-button img {
+  height: 50px; /* Establece el tamaño inicial de la imagen del logo */
+  transition: height 0.3s ease-in-out; /* Transición suave para cambiar la altura */
+  margin-left: 100px;
+  max-width: 100%;
+}
+
+.top-bar.shrink .logo-button img {
+  height: 40px; /* Cambia la altura del logo cuando se hace scroll */
+  
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: flex-start; /* Asegura que los botones estén alineados a la izquierda */
+  gap: 10px; /* Opcional, para añadir espacio entre los botones */
+  margin-right: 100px;
+}
+
+.buttons-container button {
+  background-color: transparent; /* Sin fondo */
+  border: none; /* Sin borde */
+  padding: 8px 15px; /* Espaciado interior */
+  font-size: 14px; /* Tamaño de fuente */
+  font-family: "Arial Black", serif;
+  cursor: pointer; /* Cambia el cursor a puntero al pasar sobre el botón */
+  transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+  border-radius: 15px;
+}
+
+.buttons-container button:hover {
+  background-color: #dcdcdc; /* Color de fondo cuando el botón es hoverizado */
+}
+
+/* Responsiveness for Navbar */
+@media (max-width: 768px) {
+  .buttons-container {
+    display: flex; /* Flexbox para los botones */
+    flex-wrap: wrap; /* Permite que los botones se envuelvan si es necesario */
+    justify-content: center; /* Centra los botones */
+  }
+  .buttons-container button {
+    font-size: 12px; /* Tamaño de fuente más pequeño */
+    margin: 5px; /* Espaciado entre los botones */
+  }
+}
+
+@media (max-width: 768px) {
+  .colored-section h1 {
+    font-size: 1.5rem;
+    margin: 0 auto;
+    text-align: center;
+    width: 80%;
+  }
+  .colored-section .descricao-financas {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 90%;
+  }
+}
+
+/* Colored Section */
+.colored-section {
+  display: flex; /* Flexbox para los elementos dentro de esta sección */
+  justify-content: space-between; /* Distribuye los elementos con espacio entre ellos */
+  align-items: center; /* Alinea los elementos verticalmente al centro */
+  padding: 40px 20px; /* Espaciado interior */
+  height: 33rem;
+  background-color: #284b63; /* Color de fondo */
+}
+
+.colored-section h1 {
+  font-size: 2.5rem; /* Tamaño de la fuente para el título */
+  margin-bottom: 20px; /* Margen inferior */
+  color: white;
+  font-family: "Arial Black", serif;
+  font-size: 40px;
+  width: 50%; /* Ajusta el ancho según lo necesario */
+  margin-left: 18rem;
+  margin-right: auto;
+}
+
+.colored-section .descricao-financas {
+  font-size: 1rem; /* Tamaño de fuente para la descripción */
+  color: white;
+  font-family: "Verdana", sans-serif;
+  margin-left: 18rem;
+  max-width: 40rem;
+  text-align: justify;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.colored-section .botao-container {
+  display: flex; /* Usa flexbox para alinear los botones horizontalmente */
+  gap: 1px; /* Espacio entre los botones */
+}
+
+.colored-section .botao-container button {
+  padding: 15px 70px; /* Aumenta el tamaño del botón */
+  font-size: 16px; /* Aumenta el tamaño del texto */
+  border-radius: 40px; /* Bordes redondeados */
+  background-color: #d0d0d1; /* Puedes cambiar el color de fondo */
+  color: #284b63; /* Color del texto */
+  border: none; /* Elimina el borde */
+  font-family: "Arial Black", serif;
+  cursor: pointer; /* Cambio del cursor cuando pasa sobre el botón */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Añadir transiciones suaves */
+  margin-left: 18.5rem;
+}
+
+/* Efecto cuando se pasa el mouse sobre el botón */
+.colored-section .botao-container button:hover {
+  background-color: #dcdcdc; /* Cambia el color cuando se pasa el mouse */
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño del botón */
+}
+
+.colored-section .imagem-direita {
+  flex: 1; /* Ocupa el espacio restante de la sección */
+  display: flex; /* Flexbox para controlar el contenido */
+  justify-content: flex-end; /* Alinea la imagen a la derecha */
+  margin-right: 15rem;
+}
+
+.colored-section .imagem-direita img {
+  max-width: 100%; 
+  height: auto; 
+  object-fit: contain; 
+  width: clamp(400px, 40%, 600px); /* Aumenta los valores del ancho adaptable */
+}
+
+
+/* Sobre Nós */
+.sobre-nos {
+  padding: 4vw 5%; /* Usa unidades relativas para el espaciado */
+  text-align: center;
+  font-size: 1.5vw; /* Reduce el tamaño del texto */
+  font-family: "Arial Black", serif;
+}
+
+.titulo-sobrenos{
+  margin-bottom: 0.5vw;
+  font-size: 1.5vw;
+}
+
+.linha-separadora {
+  background-color: #284b63;
+  border: none;
+  height: 0.2vw; /* La altura de la línea ahora es relativa */
+  width: 20%;
+  
+  opacity: 0.5;
+  margin: 5px auto;
+}
+
+.container {
+  display: flex; /* Flexbox para distribuir las columnas */
+  justify-content: space-between; /* Distribuir espacio entre las columnas */
+  gap: 2vw; /* Espacio entre columnas con unidades relativas */
+  padding: 4vw 5%; /* Espaciado dentro de la sección */
+  margin: 0 auto; /* Centra el contenedor */
+  max-width: 100%; /* Asegura que el contenedor no se desborde */
+  box-sizing: border-box; /* Incluye el padding en el cálculo del tamaño total */
+  font-size: 1vw;
+  padding-top: 1vw; 
+}
+
+.custom-list {
+  text-align: justify;
+  font-family: "Verdana", sans-serif;
+  font-size: 1vw;
+}
+
+.custom-list li {
+  margin-bottom: 1.6vw; /* Espacio entre los elementos de la lista */
+  padding-bottom: 10px; /* Un pequeño relleno debajo de cada item */
+  border-bottom: 10px #f0eeee; /* Línea blanca entre los elementos */
+}
+
+.column {
+  flex: 1; /* Asegura que cada columna ocupe un espacio igual */
+  padding: 2vw; /* Espaciado interior en unidades relativas */
+  text-align: justify;
+  font-family: "Verdana", sans-serif;
+  font-size: 1vw;
+}
+
+.column h3 {
+  margin-bottom: 1.5vw; /* Margen inferior relativo */
+  text-align: center;
+  font-size: 1.5vw; /* Tamaño de fuente más pequeño */
+}
+
+.column p {
+  margin-bottom: 1.5vw; /* Margen inferior en unidades relativas */
+}
+
+.column img {
+  width: 100%; /* La imagen ocupará todo el ancho disponible */
+  height: auto; /* Mantiene la proporción */
+  margin-top: 2vw; /* Margen superior relativo */
+  border-radius: 20px; 
+  margin-bottom: 2vw;
+}
+
+.texto-medio {
+  text-align: center;
+  font-size: 1vw;
+  font-family: "Verdana", sans-serif;
+  font-weight: bold;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+/* Nossa Equipa */
+.nossa-equipa{
+
+}
+.nossa-equipa h2{
+  text-align: center;
+  margin-bottom: 1vw;
+  font-family: "Arial Black", serif;
+  font-size: 1.5vw;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: nowrap;
+  padding: 0 5%; /* Márgenes a la izquierda y derecha dentro del contenedor */
+}
+
+.card {
+  flex: 0 0 auto; /* Hace que los cards no se ajusten al tamaño del contenedor */
+  width: 18%; /* Ajusta el ancho de cada card para que haya 5 en una fila */
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20vw;
+}
+
+.card img {
+  width: 100%; /* Esto asegura que la imagen ocupe todo el ancho del card */
+  height: 400px; /* Establece una altura fija para todas las imágenes */
+  object-fit: cover; /* Asegura que la imagen se recorte de manera uniforme y mantenga sus proporciones */
+  border-radius: 10px; /* Bordes redondeados para las imágenes */
+}
+
+
+.card-body {
+  padding: 10px;
+}
+
+
+/* Animation */
+[data-aos] {
+  opacity: 0; /* Hace que el elemento sea invisible inicialmente */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Transiciones suaves para la opacidad y transformación */
+}
+
+[data-aos="fade-up"] {
+  transform: translateY(20px); /* Mueve el elemento hacia abajo */
+}
+
+[data-aos].aos-animate {
+  opacity: 1; /* Hace visible el elemento */
+  transform: translateY(0); /* Restaura la posición original */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .colored-section {
+    flex-direction: column; /* Cambia la dirección de los elementos de fila a columna */
+    text-align: center; /* Centra el texto */
+  }
+
+  .colored-section .imagem-direita {
+    justify-content: center; /* Centra la imagen en pantallas pequeñas */
+  }
+
+  .container {
+    flex-direction: column; /* Cambia la dirección de los elementos de fila a columna */
+    gap: 20px; /* Reduce el espacio entre columnas */
+  }
+}
+
+.cor-do-botao {
+background-color: #d0d0d1 !important;
+color: #3C6E71 !important;
+border: none !important;
+font-size: 2vh; /* Aumenta o tamanho da letra */
+font-weight: bold; /* Deixa o texto em negrito */
+padding: 10px 20px; /* Opcional: Ajusta o espaçamento interno */
+}
+
+.alinhamento {
+display: flex;
+align-items: center; /* Alinha verticalmente no centro */
+gap: 10px; /* Espaço entre a imagem e o texto */
+}
+
+.imagem {
+width: 50px; /* Ajuste o tamanho da imagem conforme necessário */
+height: auto;
+}
+
+.texto {
+font-size: 16px;
+margin: 0;
+}
+
+.container {
+display: flex; /* Alinha as colunas lado a lado */
+gap: 12vh; /* Espaço entre as colunas */
+font-family: Arial, sans-serif;
+}
+
+.column {
+flex: 1; /* As colunas ocupam o mesmo espaço */
+}
+
+.column h2 {
+margin-bottom: 10px;
+}
+
+.column img {
+display: block; /* Faz a imagem respeitar os limites do bloco */
+width: 100%; /* Imagem ocupa toda a largura da coluna */
+height: auto; /* Mantém a proporção da imagem */
+border-radius: 10px; /* Bordas arredondadas */
+margin: 10px 0; /* Espaço entre a imagem e o texto */
+}
+
+.column p,
+.column ul {
+margin: 0 0 15px 0; /* Espaço entre os blocos de texto */
+text-align: justify; /* Justifica o texto */
+line-height: 1.6; /* Melhora o espaçamento entre linhas */
+}
+
+.custom-list {
+padding-left: 20px; /* Recuo para os itens da lista */list-style-type: disc; /* Marcadores no estilo padrão */
+}
+
+.custom-list li {
+margin-bottom: 10px; /* Espaço entre os itens da lista */
+}
+
+.texto-cor:last-of-type {
+  margin-top: 20px; /* Ajusta el valor según el espacio deseado */
+  line-height: 1.8;
+}
+
+.faq-item .faq-content {
+  display: none;
+  font-family: "Verdana", sans-serif;
+}
+.faq-item.faq-active .faq-content {
+  display: block;
+}
+
+.cascading-right {
+  margin-right: -50px;
+}
+
+@media (max-width: 991.98px) {
+  .cascading-right {
+    margin-right: 0;
+  }
+}
+.faq-item h3 {
+  font-family: "Verdana", sans-serif;
+  font-size: 30px;
+}
+
+.faq-texto {
+  font-family: "Verdana", sans-serif;
+  font-size: 30px;
+}
